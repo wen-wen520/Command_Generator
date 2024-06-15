@@ -2,13 +2,13 @@
     x:Class="Command_Generator.Experience"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Command_Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Command_Generator"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
 
 
     <Grid>
@@ -17,47 +17,77 @@
 
             <StackPanel.ChildrenTransitions>
                 <TransitionCollection>
-                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True"/>
-                    <RepositionThemeTransition IsStaggeringEnabled="False"/>
+                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
+                    <RepositionThemeTransition IsStaggeringEnabled="False" />
                 </TransitionCollection>
             </StackPanel.ChildrenTransitions>
-            <TextBlock Text="经验与等级" FontWeight="Bold" Margin="20" Style="{StaticResource TitleTextBlockStyle}"/>
+            <TextBlock
+                Margin="20"
+                FontWeight="Bold"
+                Style="{StaticResource TitleTextBlockStyle}"
+                Text="经验与等级" />
 
             <StackPanel Margin="20" HorizontalAlignment="Left">
 
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
-                        <EntranceThemeTransition FromVerticalOffset="200" IsStaggeringEnabled="True"/>
-                        <RepositionThemeTransition IsStaggeringEnabled="False"/>
+                        <EntranceThemeTransition FromVerticalOffset="200" IsStaggeringEnabled="True" />
+                        <RepositionThemeTransition IsStaggeringEnabled="False" />
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
 
 
-                
-                <TextBlock Text="经验值命令" Margin="10" Style="{StaticResource SubtitleTextBlockStyle}"/>
 
-                <!-- Command Type Selection -->
-                <muxc:RadioButtons Header="操作方式" x:Name="CommandType" MaxColumns="3" Margin="20">
-                    <RadioButton Content="add"/>
-                    <RadioButton Content="set"/>
-                    <RadioButton Content="query"/>
+                <TextBlock
+                    Margin="10"
+                    Style="{StaticResource SubtitleTextBlockStyle}"
+                    Text="经验值命令" />
+
+                <!--  Command Type Selection  -->
+                <muxc:RadioButtons
+                    x:Name="CommandType"
+                    Margin="20"
+                    Header="操作方式"
+                    MaxColumns="3">
+                    <RadioButton Content="add" />
+                    <RadioButton Content="set" />
+                    <RadioButton Content="query" />
                 </muxc:RadioButtons>
-                <AutoSuggestBox Header="目标选择器 玩家名称" x:Name="Target" PlaceholderText="目标（玩家名或选择器）" Margin="20" Width="340" HorizontalAlignment="Left" TextChanged="AutoSuggestBox_TextChanged"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen"
->
-                </AutoSuggestBox>
-                <muxc:NumberBox Header="变化值" x:Name="AmountTextBox" Margin="20"  Width="340" HorizontalAlignment="Left"
-Value="1"
-SpinButtonPlacementMode="Inline"
-SmallChange="1"
-LargeChange="100" />
+                <AutoSuggestBox
+                    x:Name="Target"
+                    Width="340"
+                    Margin="20"
+                    HorizontalAlignment="Left"
+                    Header="目标选择器 玩家名称"
+                    PlaceholderText="目标（玩家名或选择器）"
+                    SuggestionChosen="AutoSuggestBox_SuggestionChosen"
+                    TextChanged="AutoSuggestBox_TextChanged" />
+                <muxc:NumberBox
+                    x:Name="AmountTextBox"
+                    Width="340"
+                    Margin="20"
+                    HorizontalAlignment="Left"
+                    Header="变化值"
+                    LargeChange="100"
+                    SmallChange="1"
+                    SpinButtonPlacementMode="Inline"
+                    Value="1" />
 
-                <muxc:RadioButtons Header="单位" x:Name="LevelOrPointComboBox" MaxColumns="2" Margin="20" >
-                    <RadioButton Content="levels"/>
-                    <RadioButton Content="points" HorizontalAlignment="Right"/>
+                <muxc:RadioButtons
+                    x:Name="LevelOrPointComboBox"
+                    Margin="20"
+                    Header="单位"
+                    MaxColumns="2">
+                    <RadioButton Content="levels" />
+                    <RadioButton HorizontalAlignment="Right" Content="points" />
                 </muxc:RadioButtons>
 
-                <Button Content="生成命令" Margin="20" Click="ExperienceGenerateButton_Click" Style="{StaticResource AccentButtonStyle}" Width="340"/>
+                <Button
+                    Width="340"
+                    Margin="20"
+                    Click="ExperienceGenerateButton_Click"
+                    Content="生成命令"
+                    Style="{StaticResource AccentButtonStyle}" />
             </StackPanel>
         </StackPanel>
     </Grid>
