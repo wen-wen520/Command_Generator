@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Command_Generator.EditEffectsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Command_Generator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Orientation="Vertical">
+        <ScrollViewer>
+            <ListView x:Name="EditableEffectsListView" SelectionMode="None" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Effect">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Name}"/>
+                            <TextBox Header="Duration" Text="{x:Bind Duration, Mode=TwoWay}" Width="100" Margin="0,5,0,0"/>
+                            <TextBox Header="Level" Text="{x:Bind Lvl, Mode=TwoWay}" Width="100" Margin="0,5,0,0"/>
+                            <CheckBox Content="Show Particles" IsChecked="{x:Bind Particle, Mode=TwoWay}" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Copy" Margin="20" Click="Copy_Click"/>
+                <TextBox x:Name="EffectSetNameTextBox" Margin="20" Width="100"></TextBox>
+                <Button Content="Save" Margin="20" Click="SaveEffects_Click"/>
+                <Button Content="Cancel" Margin="20" Click="BackPage_Click"/>
+            </StackPanel>
+    </StackPanel>
+    </ScrollViewer>
+
+</Page>

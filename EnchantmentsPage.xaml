@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="Command_Generator.EnchantmentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Command_Generator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="GroupedEnchantments" IsSourceGrouped="True"/>
+        <DataTemplate x:Key="EnchantmentTemplate">
+            <StackPanel Orientation="Horizontal" Padding="10">
+                <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,20,0"/>
+                <TextBlock Text="{Binding Id}" Margin="0,0,20,0"/>
+                <TextBlock Text="{Binding Lvl}" Margin="0,0,20,0"/>
+                <TextBlock Text="{Binding Version}" Margin="0,0,20,0"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <ScrollViewer>
+        <StackPanel Padding="20" MaxWidth="400" HorizontalAlignment="Left">
+
+        <StackPanel.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True"/>
+                <RepositionThemeTransition IsStaggeringEnabled="False"/>
+            </TransitionCollection>
+        </StackPanel.ChildrenTransitions>
+
+        <TextBlock Text="附魔选择" FontWeight="Bold" Margin="20" Style="{StaticResource TitleTextBlockStyle}"/>
+            
+            <StackPanel x:Name="EnchantmentsListLoadingAnimation">
+                <TextBlock Margin="20" HorizontalAlignment="Center" Text="附魔列表加载中，请稍后" Foreground="{ThemeResource TextFillColorSecondaryBrush}"></TextBlock>
+                <muxc:ProgressRing Margin="20" IsActive="True" Width="60" Height="60" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </StackPanel>
+       
+
+         <ListView
+        x:Name="EnchantmentsListView"
+        SelectionMode="Multiple"
+        ItemsSource="{x:Bind Enchantments}"
+        Margin="20">
+            
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Border AutomationProperties.AccessibilityView="Raw">
+                                    <TextBlock Text="{Binding Key}" Style="{ThemeResource TitleTextBlockStyle}" AutomationProperties.AccessibilityView="Raw"/>
+                                </Border>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Width="120"/>
+                        <muxc:NumberBox
+                        Value="{Binding Lvl, Mode=TwoWay}"
+                        SpinButtonPlacementMode="Compact"
+                        SmallChange="1"
+                        LargeChange="10"
+                            Width="120"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="GenerateNBT" Content="生成NBT" Margin="20" Click="ShowCommandDialog_Click" Style="{StaticResource AccentButtonStyle}" Width="300" IsEnabled="False" />
+
+    </StackPanel>
+    </ScrollViewer>
+</Page>

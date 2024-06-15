@@ -1,0 +1,277 @@
+{
+  "effects": [
+    {
+      "name": "速度",
+      "id": "speed",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "缓慢",
+      "id": "slowness",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "急迫",
+      "id": "haste",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "挖掘疲劳",
+      "id": "mining_fatigue",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "力量",
+      "id": "strength",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "瞬间治疗",
+      "id": "instant_health",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "瞬间伤害",
+      "id": "instant_damage",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "跳跃提升",
+      "id": "jump_boost",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "反胃",
+      "id": "nausea",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "再生",
+      "id": "regeneration",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "抗性提升",
+      "id": "resistance",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "抗火",
+      "id": "fire_resistance",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "水下呼吸",
+      "id": "water_breathing",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "隐形",
+      "id": "invisibility",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "失明",
+      "id": "blindness",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "夜视",
+      "id": "night_vision",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "饥饿",
+      "id": "hunger",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "虚弱",
+      "id": "weakness",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "中毒",
+      "id": "poison",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "凋零",
+      "id": "wither",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "生命提升",
+      "id": "health_boost",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "伤害吸收",
+      "id": "absorption",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "饱和",
+      "id": "saturation",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "发光",
+      "id": "glowing",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "飘浮",
+      "id": "levitation",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "幸运",
+      "id": "luck",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "霉运",
+      "id": "unluck",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "缓降",
+      "id": "slow_falling",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "潮涌能量",
+      "id": "conduit_power",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "海豚的恩惠",
+      "id": "dolphins_grace",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "不祥之兆",
+      "id": "bad_omen",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "村庄英雄",
+      "id": "hero_of_the_village",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "黑暗",
+      "id": "darkness",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "试炼之兆",
+      "id": "trial_omen",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "袭击之兆",
+      "id": "raid_omen",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "蓄风",
+      "id": "wind_charged",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "盘丝",
+      "id": "weaving",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "渗浆",
+      "id": "oozing",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    },
+    {
+      "name": "寄生",
+      "id": "infested",
+      "lvl": 1,
+      "duration": 30,
+      "particle": true
+    }
+  ]
+}
