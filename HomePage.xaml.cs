@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
@@ -25,6 +26,12 @@ namespace Command_Generator
         public HomePage()
         {
             this.InitializeComponent();
+        }
+
+        private async void Popuptest(object sender, RoutedEventArgs e)
+        {
+            var dialog = new DiscoverTipsDialog();
+            await dialog.ShowAsync();
         }
     }
 }

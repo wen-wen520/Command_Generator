@@ -1,0 +1,40 @@
+﻿<ContentDialog
+    x:Class="Command_Generator.DiscoverTipsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Command_Generator"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Title="Discover tips"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonText="Discover tips online"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    SecondaryButtonText="Cancel"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <Image
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            Source="ms-appx:///Assets/1.png" />
+        <TextBlock
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            Text="Tips are now available online at www.microsoft.com/windows/tips."
+            TextWrapping="Wrap" />
+
+        <StackPanel
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button Click="ThumbsUpButton_Click" Content="👍" />
+            <Button
+                Margin="10,0,0,0"
+                Click="ThumbsDownButton_Click"
+                Content="👎" />
+        </StackPanel>
+    </StackPanel>
+</ContentDialog>

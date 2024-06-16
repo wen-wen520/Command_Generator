@@ -25,20 +25,9 @@
                 FontWeight="Bold"
                 Style="{StaticResource TitleTextBlockStyle}"
                 Text="主页" />
-
-            <StackPanel
-                Width="150"
-                Height="150"
-                Margin="20"
-                HorizontalAlignment="Stretch"
-                Background="{ThemeResource AppBarBackgroundThemeBrush}"
-                BorderBrush="{ThemeResource AppBarBorderThemeBrush}"
-                CornerRadius="8">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="死亡不掉落" />
-
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Margin="20" Style="{StaticResource CaptionTextBlockStyle}" Text="下面是弹出界面的示例"></TextBlock>
+                <Button Margin="20" Content="Click to show a pupup window" x:Name="ptest" Style="{StaticResource AccentButtonStyle}" Click="Popuptest"></Button>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
