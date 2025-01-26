@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Command_Generator.UI.Utils;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -7,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +33,20 @@ namespace Command_Generator
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            string savedTheme = ApplicationData.Current.LocalSettings.Values["SelectedAppTheme"]?.ToString();
+
+            if ( savedTheme == "Dark")
+            {
+                RequestedTheme = ApplicationTheme.Dark;
+            }
+            
+            if (savedTheme == "Light")
+            {
+                RequestedTheme = ApplicationTheme.Light;
+
+            }
+
         }
 
         /// <summary>
@@ -39,6 +56,7 @@ namespace Command_Generator
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            ThemeHelper.InitializeAppTheme();
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,

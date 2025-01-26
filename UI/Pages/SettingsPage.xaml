@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="Command_Generator.UI.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Command_Generator.UI.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="OnLoaded"
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+    <ScrollViewer>
+        <StackPanel
+            Margin="20"
+            Padding="12"
+            Spacing="4">
+
+            <StackPanel Style="{StaticResource SettingSection}">
+
+                <TextBlock Text="Appreance" />
+
+                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <muxc:Expander.Header>
+                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                            <FontIcon Glyph="&#xE790;" />
+                            <TextBlock Text="Theme" />
+                        </StackPanel>
+                    </muxc:Expander.Header>
+                    <muxc:Expander.Content>
+                        <muxc:RadioButtons
+                            x:Name="ThemeRadioButtons"
+                            Margin="0,-10,0,0"
+                            SelectionChanged="OnThemeSelectionChanged">
+                            <RadioButton
+                                x:Name="LightThemeRadioButton"
+                                Content="Light"
+                                Tag="Light" />
+                            <RadioButton
+                                x:Name="DarkThemeRadioButton"
+                                Content="Dark"
+                                Tag="Dark" />
+                            <RadioButton
+                                x:Name="SystemThemeRadioButton"
+                                Content="System"
+                                Tag="Default" />
+                        </muxc:RadioButtons>
+                    </muxc:Expander.Content>
+                </muxc:Expander>
+
+                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <muxc:Expander.Header>
+                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                            <FontIcon Glyph="&#xE771;" />
+                            <TextBlock Text="Color" />
+                        </StackPanel>
+                    </muxc:Expander.Header>
+                    <muxc:Expander.Content>
+                        <muxc:ColorPicker
+                            IsAlphaEnabled="True"
+                            IsColorSpectrumVisible="True"
+                            IsMoreButtonVisible="True"
+                            Orientation="Horizontal" />
+                    </muxc:Expander.Content>
+                </muxc:Expander>
+
+                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <muxc:Expander.Header>
+                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                            <FontIcon Glyph="&#xF2B7;" />
+                            <TextBlock Text="Language" />
+                        </StackPanel>
+                    </muxc:Expander.Header>
+                    <muxc:Expander.Content>
+                        <muxc:RadioButtons x:Name="Language" Margin="0,-10,0,0">
+                            <RadioButton Content="EN" />
+                            <RadioButton Content="CN" />
+                        </muxc:RadioButtons>
+                    </muxc:Expander.Content>
+                </muxc:Expander>
+
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource SettingSection}">
+                <TextBlock Text="About" />
+
+                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                    <muxc:Expander.Header>
+                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                            <FontIcon Glyph="&#xE946;" />
+                            <TextBlock Text="About" />
+                        </StackPanel>
+                    </muxc:Expander.Header>
+                    <muxc:Expander.Content>
+                        <StackPanel>
+                            <HyperlinkButton Content="Create by wenwen" />
+                            <HyperlinkButton Content="Github Repo" NavigateUri="https://github.com/wen-wen520/Command_Generator" />
+                        </StackPanel>
+                    </muxc:Expander.Content>
+                </muxc:Expander>
+
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

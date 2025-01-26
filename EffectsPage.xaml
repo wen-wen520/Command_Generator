@@ -110,7 +110,6 @@
                         <TextBlock
                             Margin="20"
                             HorizontalAlignment="Center"
-                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                             Text="效果列表加载中，请稍后" />
                         <muxc:ProgressRing
                             Width="60"
