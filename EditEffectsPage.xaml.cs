@@ -104,8 +104,8 @@ namespace Command_Generator
             dataPackage.SetText(effectsCommand);
             Clipboard.SetContent(dataPackage);
 
-            var toastService = new ToastNotificationsServices();
-            toastService.ShowToastNotification("Command copied and custom effect saved.", effectsCommand, "ms-appx:///Assets/1.png");
+            //var toastService = new ToastNotificationsServices();
+            //toastService.ShowToastNotification("Command copied and custom effect saved.", effectsCommand, "ms-appx:///Assets/1.png");
         }
 
         private string GenerateEffectsCommand()

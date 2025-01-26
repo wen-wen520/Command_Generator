@@ -4,10 +4,12 @@
 using System;
 using System.Diagnostics;
 using System.Reflection;
-
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.ViewManagement;
+
 
 namespace Command_Generator.UI.Utils
 {
@@ -40,8 +42,20 @@ namespace Command_Generator.UI.Utils
                     rootElement.RequestedTheme = value;
 
                     ApplicationData.Current.LocalSettings.Values[SelectedAppThemeKey] = rootElement.RequestedTheme.ToString();
-                    Debug.WriteLine("Theme saved: " + ApplicationData.Current.LocalSettings.Values[SelectedAppThemeKey].ToString());
 
+                    if (value == ElementTheme.Dark)
+                    {
+                        ApplicationView.GetForCurrentView().TitleBar.ButtonForegroundColor = Colors.White;
+                        //ApplicationView.GetForCurrentView().TitleBar.ButtonHoverBackgroundColor = Colors.DarkGray;
+                        //ApplicationView.GetForCurrentView().TitleBar.ButtonPressedBackgroundColor = Colors.LightGray;
+                    }
+                    else
+                    {
+                        ApplicationView.GetForCurrentView().TitleBar.ButtonForegroundColor = Colors.Black;
+                        //ApplicationView.GetForCurrentView().TitleBar.ButtonHoverBackgroundColor = Colors.LightGray;
+                        //ApplicationView.GetForCurrentView().TitleBar.ButtonPressedBackgroundColor = Colors.DarkGray;
+
+                    }
                 }
             }
         }

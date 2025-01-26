@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Command_Generator;
 
 namespace Command_Generator
 {
@@ -31,21 +32,10 @@ namespace Command_Generator
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+
+
             this.Suspending += OnSuspending;
-
-            string savedTheme = ApplicationData.Current.LocalSettings.Values["SelectedAppTheme"]?.ToString();
-
-            if ( savedTheme == "Dark")
-            {
-                RequestedTheme = ApplicationTheme.Dark;
-            }
-            
-            if (savedTheme == "Light")
-            {
-                RequestedTheme = ApplicationTheme.Light;
-
-            }
+            this.InitializeComponent();
 
         }
 
@@ -56,7 +46,6 @@ namespace Command_Generator
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            ThemeHelper.InitializeAppTheme();
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -75,22 +64,26 @@ namespace Command_Generator
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
             }
 
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
                 {
-                    // When the navigation stack isn't restored navigate to the first page,
-                    // configuring the new page by passing required information as a navigation
-                    // parameter
-                    // test
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+
+
+                    rootFrame.Navigate(typeof(UI.Pages.MainPage), e.Arguments);
                 }
                 // Ensure the current window is active
-                Window.Current.Activate();
             }
+
+
+            ThemeHelper.InitializeAppTheme();
+            LocalizeHelper.InitializeAppLanguage();
+            Window.Current.Activate();
         }
+
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails

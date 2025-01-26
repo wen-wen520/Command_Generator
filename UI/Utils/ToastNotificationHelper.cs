@@ -2,11 +2,11 @@ using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 
 
-namespace Command_Generator
+namespace Command_Generator.Services
 {
-    public sealed partial class ToastNotificationsServices
+    public sealed partial class ToastNotificationHelper
     {
-        public void ShowToastNotification(string title, string copy_text, string image_path)
+        public static void SendNotification(string title, string copy_text, string image_path)
         {
             // Create the toast notification content
             string toastXmlString = $@"

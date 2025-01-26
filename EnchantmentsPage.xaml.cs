@@ -109,8 +109,8 @@ namespace Command_Generator
         {
             if (EnchantmentsListView.SelectedItems.Count == 0)
             {
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("尚未选择任何附魔。" ,"" , "ms-appx:///Assets/Error.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("尚未选择任何附魔。" ,"" , "ms-appx:///Assets/Error.png");
                 return;
             }
 
@@ -134,8 +134,8 @@ namespace Command_Generator
                 var dataPackage = new DataPackage();
                 dataPackage.SetText(enchantmentsNBT);
                 Clipboard.SetContent(dataPackage);
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("已复制NBT: ", enchantmentsNBT, "ms-appx:///Assets/Clipboard.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("已复制NBT: ", enchantmentsNBT, "ms-appx:///Assets/Clipboard.png");
             };
 
             await commandDialog.ShowAsync();

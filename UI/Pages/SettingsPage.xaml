@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="using:Command_Generator.UI.Utils"
     xmlns:local="using:Command_Generator.UI.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
@@ -18,13 +19,13 @@
 
             <StackPanel Style="{StaticResource SettingSection}">
 
-                <TextBlock Text="Appreance" />
+                <TextBlock Text="{lang:ResourceString Name=SettingPage_Section_Appreance}" />
 
                 <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <muxc:Expander.Header>
                         <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
                             <FontIcon Glyph="&#xE790;" />
-                            <TextBlock Text="Theme" />
+                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Theme}" />
                         </StackPanel>
                     </muxc:Expander.Header>
                     <muxc:Expander.Content>
@@ -32,18 +33,9 @@
                             x:Name="ThemeRadioButtons"
                             Margin="0,-10,0,0"
                             SelectionChanged="OnThemeSelectionChanged">
-                            <RadioButton
-                                x:Name="LightThemeRadioButton"
-                                Content="Light"
-                                Tag="Light" />
-                            <RadioButton
-                                x:Name="DarkThemeRadioButton"
-                                Content="Dark"
-                                Tag="Dark" />
-                            <RadioButton
-                                x:Name="SystemThemeRadioButton"
-                                Content="System"
-                                Tag="Default" />
+                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Light}" Tag="Light" />
+                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Dark}" Tag="Dark" />
+                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Default}" Tag="Default" />
                         </muxc:RadioButtons>
                     </muxc:Expander.Content>
                 </muxc:Expander>
@@ -52,7 +44,7 @@
                     <muxc:Expander.Header>
                         <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
                             <FontIcon Glyph="&#xE771;" />
-                            <TextBlock Text="Color" />
+                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Color}" />
                         </StackPanel>
                     </muxc:Expander.Header>
                     <muxc:Expander.Content>
@@ -68,33 +60,42 @@
                     <muxc:Expander.Header>
                         <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
                             <FontIcon Glyph="&#xF2B7;" />
-                            <TextBlock Text="Language" />
+                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Language}" />
                         </StackPanel>
                     </muxc:Expander.Header>
                     <muxc:Expander.Content>
-                        <muxc:RadioButtons x:Name="Language" Margin="0,-10,0,0">
-                            <RadioButton Content="EN" />
-                            <RadioButton Content="CN" />
-                        </muxc:RadioButtons>
+                        <StackPanel Orientation="Vertical">
+                            <muxc:InfoBar
+                                Margin="0,-10,0,0"
+                                HorizontalAlignment="Stretch"
+                                IsClosable="False"
+                                IsOpen="True"
+                                Message="{lang:ResourceString Name=SettingPage_Setting_Language_RestartInfo}"
+                                Severity="Informational" />
+                            <muxc:RadioButtons x:Name="LanguageRadioButtons" SelectionChanged="OnLanguageSelectionChanged">
+                                <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Language_en-us}" Tag="en-US" />
+                                <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Language_zh-cn}" Tag="zh-Hans-CN" />
+                            </muxc:RadioButtons>
+                        </StackPanel>
                     </muxc:Expander.Content>
                 </muxc:Expander>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource SettingSection}">
-                <TextBlock Text="About" />
+                <TextBlock Text="{lang:ResourceString Name=SettingPage_Section_About}" />
 
                 <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                     <muxc:Expander.Header>
                         <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
                             <FontIcon Glyph="&#xE946;" />
-                            <TextBlock Text="About" />
+                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_About}" />
                         </StackPanel>
                     </muxc:Expander.Header>
                     <muxc:Expander.Content>
                         <StackPanel>
-                            <HyperlinkButton Content="Create by wenwen" />
-                            <HyperlinkButton Content="Github Repo" NavigateUri="https://github.com/wen-wen520/Command_Generator" />
+                            <HyperlinkButton Content="{lang:ResourceString Name=SettingPage_Setting_About_Author}" />
+                            <HyperlinkButton Content="{lang:ResourceString Name=SettingPage_Setting_About_Repo}" NavigateUri="https://github.com/wen-wen520/Command_Generator" />
                         </StackPanel>
                     </muxc:Expander.Content>
                 </muxc:Expander>

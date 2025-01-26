@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Command_Generator.UI.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace Command_Generator
+namespace Command_Generator.UI.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -32,11 +33,7 @@ namespace Command_Generator
             this.InitializeComponent();
             NavView.SelectionChanged += NavigationView_SelectionChanged;
 
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-
-            ApplicationView.GetForCurrentView().TitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
-            ApplicationView.GetForCurrentView().TitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
+            TitleBarInitialize();
         }
 
         private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
@@ -58,5 +55,14 @@ namespace Command_Generator
             }
         }
 
+
+        private static void TitleBarInitialize()
+        {
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            ApplicationView.GetForCurrentView().TitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
+            ApplicationView.GetForCurrentView().TitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
+        }
     }
 }

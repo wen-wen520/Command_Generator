@@ -180,8 +180,8 @@ namespace Command_Generator
         {
             if (EffectsListView.SelectedItems.Count == 0)
             {
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("尚未选择效果。", "", "ms-appx:///Assets/Error.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("尚未选择效果。", "", "ms-appx:///Assets/Error.png");
                 return;
             }
 
@@ -205,8 +205,8 @@ namespace Command_Generator
                 var dataPackage = new DataPackage();
                 dataPackage.SetText(EffectsNBT);
                 Clipboard.SetContent(dataPackage);
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("已复制命令: ", EffectsNBT, "ms-appx:///Assets/Clipboard.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("已复制命令: ", EffectsNBT, "ms-appx:///Assets/Clipboard.png");
             };
 
             await commandDialog.ShowAsync();
@@ -268,8 +268,8 @@ namespace Command_Generator
                 var dataPackage = new DataPackage();
                 dataPackage.SetText(potionNBT);
                 Clipboard.SetContent(dataPackage);
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("已复制NBT: ", potionNBT, "ms-appx:///Assets/Clipboard.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("已复制NBT: ", potionNBT, "ms-appx:///Assets/Clipboard.png");
             };
 
             await potionNBTDialog.ShowAsync();

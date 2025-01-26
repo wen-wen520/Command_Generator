@@ -104,8 +104,8 @@ namespace Command_Generator
             commandDialog.PrimaryButtonClick += (s, args) =>
             {
                 CopyCommandToClipboard(command);
-                ToastNotificationsServices toastServices = new ToastNotificationsServices();
-                toastServices.ShowToastNotification("已复制命令: ", command, "ms-appx:///Assets/Clipboard.png");
+                //ToastNotificationsServices toastServices = new ToastNotificationsServices();
+                //toastServices.ShowToastNotification("已复制命令: ", command, "ms-appx:///Assets/Clipboard.png");
             };
 
             // Show the ContentDialog
