@@ -2,7 +2,7 @@
 
     <Style x:Key="BaseStackPanel" TargetType="StackPanel">
         <Setter Property="Padding" Value="20" />
-        <Setter Property="Margin" Value="40,16,40,16" />
+        <Setter Property="Margin" Value="40,0,40,40" />
         <Setter Property="ChildrenTransitions">
             <Setter.Value>
                 <TransitionCollection>
@@ -27,7 +27,7 @@
 
     <Style x:Key="SettingExpenderCardHeader" TargetType="StackPanel">
         <Setter Property="Orientation" Value="Horizontal" />
-        <Setter Property="Spacing" Value="8"/>
+        <Setter Property="Spacing" Value="8" />
     </Style>
 
     <Style x:Key="SettingSection" TargetType="StackPanel">

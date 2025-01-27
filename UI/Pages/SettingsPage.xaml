@@ -12,95 +12,88 @@
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
     <ScrollViewer>
-        <StackPanel
-            Margin="20"
-            Padding="12"
-            Spacing="4">
+        <StackPanel Spacing="12" Style="{StaticResource BaseStackPanel}">
 
-            <StackPanel Style="{StaticResource SettingSection}">
 
-                <TextBlock Text="{lang:ResourceString Name=SettingPage_Section_Appreance}" />
+            <TextBlock Margin="0,20,0,0" Text="{lang:ResourceString Name=SettingsPage_Section_Appreance}" />
 
-                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <muxc:Expander.Header>
-                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
-                            <FontIcon Glyph="&#xE790;" />
-                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Theme}" />
-                        </StackPanel>
-                    </muxc:Expander.Header>
-                    <muxc:Expander.Content>
-                        <muxc:RadioButtons
-                            x:Name="ThemeRadioButtons"
+            <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <muxc:Expander.Header>
+                    <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                        <FontIcon Glyph="&#xE790;" />
+                        <TextBlock Text="{lang:ResourceString Name=SettingsPage_Title_Theme}" />
+                    </StackPanel>
+                </muxc:Expander.Header>
+                <muxc:Expander.Content>
+                    <muxc:RadioButtons
+                        x:Name="ThemeRadioButtons"
+                        Margin="0,-10,0,0"
+                        SelectionChanged="OnThemeSelectionChanged">
+                        <RadioButton Content="{lang:ResourceString Name=SettingsPage_Setting_Theme_Light}" Tag="Light" />
+                        <RadioButton Content="{lang:ResourceString Name=SettingsPage_Setting_Theme_Dark}" Tag="Dark" />
+                        <RadioButton Content="{lang:ResourceString Name=SettingsPage_Setting_Theme_Default}" Tag="Default" />
+                    </muxc:RadioButtons>
+                </muxc:Expander.Content>
+            </muxc:Expander>
+
+            <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <muxc:Expander.Header>
+                    <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                        <FontIcon Glyph="&#xE771;" />
+                        <TextBlock Text="{lang:ResourceString Name=SettingsPage_Title_Color}" />
+                    </StackPanel>
+                </muxc:Expander.Header>
+                <muxc:Expander.Content>
+                    <muxc:ColorPicker
+                        IsAlphaEnabled="True"
+                        IsColorSpectrumVisible="True"
+                        IsMoreButtonVisible="True"
+                        Orientation="Horizontal" />
+                </muxc:Expander.Content>
+            </muxc:Expander>
+
+            <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <muxc:Expander.Header>
+                    <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                        <FontIcon Glyph="&#xF2B7;" />
+                        <TextBlock Text="{lang:ResourceString Name=SettingsPage_Title_Language}" />
+                    </StackPanel>
+                </muxc:Expander.Header>
+                <muxc:Expander.Content>
+                    <StackPanel Orientation="Vertical">
+                        <muxc:InfoBar
                             Margin="0,-10,0,0"
-                            SelectionChanged="OnThemeSelectionChanged">
-                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Light}" Tag="Light" />
-                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Dark}" Tag="Dark" />
-                            <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Theme_Default}" Tag="Default" />
+                            HorizontalAlignment="Stretch"
+                            IsClosable="False"
+                            IsOpen="True"
+                            Message="{lang:ResourceString Name=SettingsPage_Setting_Language_RestartInfo}"
+                            Severity="Informational" />
+                        <muxc:RadioButtons x:Name="LanguageRadioButtons" SelectionChanged="OnLanguageSelectionChanged">
+                            <RadioButton Content="{lang:ResourceString Name=SettingsPage_Setting_Language_en-us}" Tag="en-US" />
+                            <RadioButton Content="{lang:ResourceString Name=SettingsPage_Setting_Language_zh-cn}" Tag="zh-Hans-CN" />
                         </muxc:RadioButtons>
-                    </muxc:Expander.Content>
-                </muxc:Expander>
+                    </StackPanel>
+                </muxc:Expander.Content>
+            </muxc:Expander>
 
-                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <muxc:Expander.Header>
-                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
-                            <FontIcon Glyph="&#xE771;" />
-                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Color}" />
-                        </StackPanel>
-                    </muxc:Expander.Header>
-                    <muxc:Expander.Content>
-                        <muxc:ColorPicker
-                            IsAlphaEnabled="True"
-                            IsColorSpectrumVisible="True"
-                            IsMoreButtonVisible="True"
-                            Orientation="Horizontal" />
-                    </muxc:Expander.Content>
-                </muxc:Expander>
 
-                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <muxc:Expander.Header>
-                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
-                            <FontIcon Glyph="&#xF2B7;" />
-                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_Language}" />
-                        </StackPanel>
-                    </muxc:Expander.Header>
-                    <muxc:Expander.Content>
-                        <StackPanel Orientation="Vertical">
-                            <muxc:InfoBar
-                                Margin="0,-10,0,0"
-                                HorizontalAlignment="Stretch"
-                                IsClosable="False"
-                                IsOpen="True"
-                                Message="{lang:ResourceString Name=SettingPage_Setting_Language_RestartInfo}"
-                                Severity="Informational" />
-                            <muxc:RadioButtons x:Name="LanguageRadioButtons" SelectionChanged="OnLanguageSelectionChanged">
-                                <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Language_en-us}" Tag="en-US" />
-                                <RadioButton Content="{lang:ResourceString Name=SettingPage_Setting_Language_zh-cn}" Tag="zh-Hans-CN" />
-                            </muxc:RadioButtons>
-                        </StackPanel>
-                    </muxc:Expander.Content>
-                </muxc:Expander>
+            <TextBlock Margin="0,20,0,0" Text="{lang:ResourceString Name=SettingsPage_Section_About}" />
 
-            </StackPanel>
+            <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
+                <muxc:Expander.Header>
+                    <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
+                        <FontIcon Glyph="&#xE946;" />
+                        <TextBlock Text="{lang:ResourceString Name=SettingsPage_Title_About}" />
+                    </StackPanel>
+                </muxc:Expander.Header>
+                <muxc:Expander.Content>
+                    <StackPanel>
+                        <HyperlinkButton Content="{lang:ResourceString Name=SettingsPage_Setting_About_Author}" />
+                        <HyperlinkButton Content="{lang:ResourceString Name=SettingsPage_Setting_About_Repo}" NavigateUri="https://github.com/wen-wen520/Command_Generator" />
+                    </StackPanel>
+                </muxc:Expander.Content>
+            </muxc:Expander>
 
-            <StackPanel Style="{StaticResource SettingSection}">
-                <TextBlock Text="{lang:ResourceString Name=SettingPage_Section_About}" />
-
-                <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
-                    <muxc:Expander.Header>
-                        <StackPanel Style="{StaticResource SettingExpenderCardHeader}">
-                            <FontIcon Glyph="&#xE946;" />
-                            <TextBlock Text="{lang:ResourceString Name=SettingPage_Title_About}" />
-                        </StackPanel>
-                    </muxc:Expander.Header>
-                    <muxc:Expander.Content>
-                        <StackPanel>
-                            <HyperlinkButton Content="{lang:ResourceString Name=SettingPage_Setting_About_Author}" />
-                            <HyperlinkButton Content="{lang:ResourceString Name=SettingPage_Setting_About_Repo}" NavigateUri="https://github.com/wen-wen520/Command_Generator" />
-                        </StackPanel>
-                    </muxc:Expander.Content>
-                </muxc:Expander>
-
-            </StackPanel>
 
         </StackPanel>
     </ScrollViewer>

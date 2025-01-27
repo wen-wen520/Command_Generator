@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Controls;
+using Windows.ApplicationModel.Resources;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,31 +33,8 @@ namespace Command_Generator.UI.Pages
         public MainPage()
         {
             this.InitializeComponent();
-            NavView.SelectionChanged += NavigationView_SelectionChanged;
-
             TitleBarInitialize();
         }
-
-        private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
-        {
-            if (args.IsSettingsSelected)
-            {
-                contentFrame.Navigate(typeof(UI.Pages.SettingsPage));
-            }
-            else
-            {
-                var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
-                if (selectedItem != null)
-                {
-                    string selectedItemTag = ((string)selectedItem.Tag);
-                    string pageName = "Command_Generator." + selectedItemTag;
-                    Type pageType = Type.GetType(pageName);
-                    contentFrame.Navigate(pageType);
-                }
-            }
-        }
-
-
         private static void TitleBarInitialize()
         {
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -63,6 +42,34 @@ namespace Command_Generator.UI.Pages
 
             ApplicationView.GetForCurrentView().TitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
             ApplicationView.GetForCurrentView().TitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
+        }
+        private void NavigationViewControl_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        {
+            var resourceLoader = ResourceLoader.GetForCurrentView();
+
+            if (args.IsSettingsInvoked)
+            {
+                ContentFrame.Navigate(typeof(SettingsPage));
+                NavigationViewControl.Header = resourceLoader.GetString("SettingsPage_PageHeader");
+            }
+
+            else if (args.InvokedItemContainer != null)
+            {
+                string invokedItemTag = args.InvokedItemContainer.Tag.ToString();
+                Type pageType = Type.GetType($"Command_Generator.UI.Pages.{invokedItemTag}");
+
+
+                if (pageType != null)
+                {
+                    ContentFrame.Navigate(pageType);
+                    NavigationViewControl.Header = resourceLoader.GetString($"{(args.InvokedItemContainer as Microsoft.UI.Xaml.Controls.NavigationViewItem).Tag}_PageHeader");
+                }
+                else
+                {
+                    ContentFrame.Navigate(typeof(HomePage));
+                    NavigationViewControl.Header = resourceLoader.GetString("HomePage_PageHeader");
+                }
+            }
         }
     }
 }

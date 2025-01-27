@@ -117,46 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="SettingPage_Section_Appreance" xml:space="preserve">
+  <data name="SettingsPage_Section_Appreance" xml:space="preserve">
     <value>外观</value>
   </data>
-  <data name="SettingPage_Title_Theme" xml:space="preserve">
+  <data name="SettingsPage_Title_Theme" xml:space="preserve">
     <value>主题</value>
   </data>
-  <data name="SettingPage_Setting_Theme_Light" xml:space="preserve">
+  <data name="SettingsPage_Setting_Theme_Light" xml:space="preserve">
     <value>浅色</value>
   </data>
-  <data name="SettingPage_Setting_Theme_Dark" xml:space="preserve">
+  <data name="SettingsPage_Setting_Theme_Dark" xml:space="preserve">
     <value>深色</value>
   </data>
-  <data name="SettingPage_Setting_Theme_Default" xml:space="preserve">
+  <data name="SettingsPage_Setting_Theme_Default" xml:space="preserve">
     <value>跟随系统</value>
   </data>
-  <data name="SettingPage_Title_Color" xml:space="preserve">
+  <data name="SettingsPage_Title_Color" xml:space="preserve">
     <value>颜色</value>
   </data>
-  <data name="SettingPage_Title_Language" xml:space="preserve">
+  <data name="SettingsPage_Title_Language" xml:space="preserve">
     <value>语言</value>
   </data>
-  <data name="SettingPage_Setting_Language_en-us" xml:space="preserve">
-    <value>英语（美国）</value>
+  <data name="SettingsPage_Setting_Language_en-us" xml:space="preserve">
+    <value>英语（美国）English (US)</value>
   </data>
-  <data name="SettingPage_Setting_Language_zh-cn" xml:space="preserve">
+  <data name="SettingsPage_Setting_Language_zh-cn" xml:space="preserve">
     <value>中文（简体）</value>
   </data>
-  <data name="SettingPage_Section_About" xml:space="preserve">
+  <data name="SettingsPage_Section_About" xml:space="preserve">
     <value>关于</value>
   </data>
-  <data name="SettingPage_Title_About" xml:space="preserve">
+  <data name="SettingsPage_Title_About" xml:space="preserve">
     <value>关于</value>
   </data>
-  <data name="SettingPage_Setting_About_Author" xml:space="preserve">
+  <data name="SettingsPage_Setting_About_Author" xml:space="preserve">
     <value>由 文文 用 💗 制作</value>
   </data>
-  <data name="SettingPage_Setting_About_Repo" xml:space="preserve">
+  <data name="SettingsPage_Setting_About_Repo" xml:space="preserve">
     <value>代码仓库</value>
   </data>
-  <data name="SettingPage_Setting_Language_RestartInfo" xml:space="preserve">
+  <data name="SettingsPage_Setting_Language_RestartInfo" xml:space="preserve">
     <value>更改语言需要重启应用。</value>
+  </data>
+  <data name="App_Base_Title" xml:space="preserve">
+    <value>命令生成器</value>
+  </data>
+  <data name="HomePage_PageHeader" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="SettingsPage_PageHeader" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="UnitEnchantmentPage_PageHeader" xml:space="preserve">
+    <value>附魔单元</value>
   </data>
 </root>

@@ -23,10 +23,11 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using System.Threading.Tasks;
+using Command_Generator.UI.Pages;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Command_Generator
+namespace Command_Generator.UI.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -69,12 +70,12 @@ namespace Command_Generator
     }
 
 
-    public sealed partial class EnchantmentsPage : Page
+    public sealed partial class UnitEnchantmentPage : Page
     {
 
         public ObservableCollection<Enchantment> Enchantments { get; set; }
 
-        public EnchantmentsPage()
+        public UnitEnchantmentPage()
         {
             this.InitializeComponent();
             Enchantments = new ObservableCollection<Enchantment>();

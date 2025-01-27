@@ -1,14 +1,14 @@
 ﻿<Page
-    x:Class="Command_Generator.EnchantmentsPage"
+    x:Class="Command_Generator.UI.Pages.UnitEnchantmentPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Command_Generator"
+    xmlns:local="using:Command_Generator.UI.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
 
     <Page.Resources>
@@ -26,17 +26,7 @@
         </DataTemplate>
     </Page.Resources>
     <ScrollViewer>
-        <StackPanel
-            MaxWidth="400"
-            Padding="20"
-            HorizontalAlignment="Left">
-
-            <StackPanel.ChildrenTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
-                    <RepositionThemeTransition IsStaggeringEnabled="False" />
-                </TransitionCollection>
-            </StackPanel.ChildrenTransitions>
+        <StackPanel Style="{StaticResource BaseStackPanel}">
 
             <TextBlock
                 Margin="20"

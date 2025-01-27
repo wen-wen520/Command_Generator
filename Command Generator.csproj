@@ -132,17 +132,17 @@
     <Compile Include="EffectsPage.xaml.cs">
       <DependentUpon>EffectsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EnchantmentsPage.xaml.cs">
-      <DependentUpon>EnchantmentsPage.xaml</DependentUpon>
+    <Compile Include="UI\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\UnitEnchantmentPage.xaml.cs">
+      <DependentUpon>UnitEnchantmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Experience.xaml.cs">
       <DependentUpon>Experience.xaml</DependentUpon>
     </Compile>
     <Compile Include="Give.xaml.cs">
       <DependentUpon>Give.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -197,7 +197,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EnchantmentsPage.xaml">
+    <Page Include="UI\Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Pages\UnitEnchantmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,10 +210,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Give.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
