@@ -15,7 +15,7 @@
         <StackPanel Spacing="12" Style="{StaticResource BaseStackPanel}">
 
 
-            <TextBlock Margin="0,20,0,0" Text="{lang:ResourceString Name=SettingsPage_Section_Appreance}" />
+            <TextBlock Text="{lang:ResourceString Name=SettingsPage_Section_Appreance}" />
 
             <muxc:Expander HorizontalAlignment="Stretch" HorizontalContentAlignment="Left">
                 <muxc:Expander.Header>

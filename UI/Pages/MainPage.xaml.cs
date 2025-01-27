@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.Resources;
+using System.Resources;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -34,6 +35,9 @@ namespace Command_Generator.UI.Pages
         {
             this.InitializeComponent();
             TitleBarInitialize();
+
+            ContentFrame.Navigate(typeof(HomePage));
+            NavigationViewControl.Header = ResourceLoader.GetForCurrentView().GetString("HomePage_PageHeader");
         }
         private static void TitleBarInitialize()
         {
@@ -43,6 +47,7 @@ namespace Command_Generator.UI.Pages
             ApplicationView.GetForCurrentView().TitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
             ApplicationView.GetForCurrentView().TitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
         }
+
         private void NavigationViewControl_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
             var resourceLoader = ResourceLoader.GetForCurrentView();
@@ -66,8 +71,6 @@ namespace Command_Generator.UI.Pages
                 }
                 else
                 {
-                    ContentFrame.Navigate(typeof(HomePage));
-                    NavigationViewControl.Header = resourceLoader.GetString("HomePage_PageHeader");
                 }
             }
         }

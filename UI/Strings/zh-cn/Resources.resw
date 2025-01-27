@@ -139,7 +139,7 @@
     <value>语言</value>
   </data>
   <data name="SettingsPage_Setting_Language_en-us" xml:space="preserve">
-    <value>英语（美国）English (US)</value>
+    <value>English (US)</value>
   </data>
   <data name="SettingsPage_Setting_Language_zh-cn" xml:space="preserve">
     <value>中文（简体）</value>
@@ -170,5 +170,8 @@
   </data>
   <data name="UnitEnchantmentPage_PageHeader" xml:space="preserve">
     <value>附魔单元</value>
+  </data>
+  <data name="UnitPage_PageHeader" xml:space="preserve">
+    <value>单元管理</value>
   </data>
 </root>
