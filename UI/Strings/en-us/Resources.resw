@@ -174,4 +174,7 @@
   <data name="UnitPage_PageHeader" xml:space="preserve">
     <value>Units Management</value>
   </data>
+  <data name="UnitEffectPage_PageHeader" xml:space="preserve">
+    <value>Effect Unit</value>
+  </data>
 </root>

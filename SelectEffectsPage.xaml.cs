@@ -60,7 +60,7 @@ namespace Command_Generator
         private void NextPage_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             // 传递选择的效果到下一个页面
-            Frame.Navigate(typeof(EditEffectsPage), SelectedEffects);
+            Frame.Navigate(typeof(UI.Pages.UnitEffectPage), SelectedEffects);
         }
     }
 }

@@ -1,12 +1,15 @@
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
+using Windows.Devices.Pwm;
+using Windows.Media.Capture.Core;
+using Windows.ApplicationModel.Resources;
 
 
 namespace Command_Generator.Services
 {
     public sealed partial class ToastNotificationHelper
     {
-        public static void SendNotification(string title, string copy_text, string image_path)
+        public static void SendNotification(string title = "", string copy_text = "", string image_path = "")
         {
             // Create the toast notification content
             string toastXmlString = $@"

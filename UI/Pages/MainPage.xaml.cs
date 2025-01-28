@@ -69,9 +69,6 @@ namespace Command_Generator.UI.Pages
                     ContentFrame.Navigate(pageType);
                     NavigationViewControl.Header = resourceLoader.GetString($"{(args.InvokedItemContainer as Microsoft.UI.Xaml.Controls.NavigationViewItem).Tag}_PageHeader");
                 }
-                else
-                {
-                }
             }
         }
     }

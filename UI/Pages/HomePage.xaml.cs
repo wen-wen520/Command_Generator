@@ -26,5 +26,8 @@ namespace Command_Generator.UI.Pages
         {
             this.InitializeComponent();
         }
+
     }
+
+   
 }

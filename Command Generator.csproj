@@ -126,8 +126,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\Services\Restart.cs" />
-    <Compile Include="EditEffectsPage.xaml.cs">
-      <DependentUpon>EditEffectsPage.xaml</DependentUpon>
+    <Compile Include="UI\Pages\UnitEffectPage.xaml.cs">
+      <DependentUpon>UnitEffectPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EffectsPage.xaml.cs">
       <DependentUpon>EffectsPage.xaml</DependentUpon>
@@ -189,7 +189,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="EditEffectsPage.xaml">
+    <Page Include="UI\Pages\UnitEffectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
