@@ -62,7 +62,7 @@
                     Content="{lang:ResourceString Name=UnitPage_PageHeader}"
                     Icon="Page2"
                     SelectsOnInvoked="False"
-                    Tag="null">
+                    Tag="Expander">
                     <muxc:NavigationViewItem.MenuItems>
 
                         <muxc:NavigationViewItem Content="{lang:ResourceString Name=UnitEnchantmentPage_PageHeader}" Tag="UnitEnchantmentPage">

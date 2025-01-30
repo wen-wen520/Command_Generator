@@ -21,6 +21,7 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.Resources;
 using System.Resources;
+using Command_Generator.Services;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -63,11 +64,20 @@ namespace Command_Generator.UI.Pages
                 string invokedItemTag = args.InvokedItemContainer.Tag.ToString();
                 Type pageType = Type.GetType($"Command_Generator.UI.Pages.{invokedItemTag}");
 
+                if (invokedItemTag == "Expander")
+                {
+                    
+                }
 
-                if (pageType != null)
+                else if (pageType != null)
                 {
                     ContentFrame.Navigate(pageType);
                     NavigationViewControl.Header = resourceLoader.GetString($"{(args.InvokedItemContainer as Microsoft.UI.Xaml.Controls.NavigationViewItem).Tag}_PageHeader");
+                }
+
+                else
+                {
+                    ToastNotificationHelper.SendNotification("Error", "Page not found", "ms-appx:///Assets/Prohibited.png");
                 }
             }
         }
