@@ -3,6 +3,7 @@
     internal class custom_effects
     {
         private string user_unit_name = "Default Unit Name";
+        private string user_unit_uuid = "Default Unit UUID";
         private string id = "absorption";
         private byte amplifier = 0;
         private int duration = 1;

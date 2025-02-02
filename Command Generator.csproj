@@ -125,10 +125,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\Component\enchantments.cs" />
     <Compile Include="Core\Unit\custom_color.cs" />
     <Compile Include="Core\Unit\custom_effect.cs" />
     <Compile Include="Core\Component\potion_contents.cs" />
     <Compile Include="Core\Services\Restart.cs" />
+    <Compile Include="Core\Unit\enchantment.cs" />
     <Compile Include="UI\Pages\UnitEffectPage.xaml.cs">
       <DependentUpon>UnitEffectPage.xaml</DependentUpon>
     </Compile>
