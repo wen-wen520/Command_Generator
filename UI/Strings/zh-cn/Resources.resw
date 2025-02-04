@@ -174,4 +174,7 @@
   <data name="UnitPage_PageHeader" xml:space="preserve">
     <value>单元管理</value>
   </data>
+  <data name="UnitEffectPage_PageHeader" xml:space="preserve">
+    <value>效果单元</value>
+  </data>
 </root>
