@@ -8,6 +8,8 @@
         <controls:XamlControlsResources>
             <controls:XamlControlsResources.MergedDictionaries>
                 <ResourceDictionary Source="UI\Resources\StackPanels.xaml" />
+                <ResourceDictionary Source="UI\Resources\Borders.xaml" />
+                <ResourceDictionary Source="UI\Resources\Grids.xaml" />
             </controls:XamlControlsResources.MergedDictionaries>
         </controls:XamlControlsResources>
     </Application.Resources>

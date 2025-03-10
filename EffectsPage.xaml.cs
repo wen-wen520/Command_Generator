@@ -280,7 +280,7 @@ namespace Command_Generator
         {
             Uri uri = new Uri("ms-appx:///Assets/Effects List.json");
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-            var json = await FileIO.ReadTextAsync(file);
+            var json = await Windows.Storage.FileIO.ReadTextAsync(file);
             var data = JsonConvert.DeserializeObject<EffectData>(json);
             data.Effects.ForEach(Effect => Effects.Add(Effect));
             EffectsListView.ItemsSource = Effects;

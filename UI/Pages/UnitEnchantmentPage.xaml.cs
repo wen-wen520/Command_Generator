@@ -157,7 +157,7 @@ namespace Command_Generator.UI.Pages
         {
             Uri uri = new Uri("ms-appx:///Assets/Enchantments List.json");
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-            var json = await FileIO.ReadTextAsync(file);
+            var json = await Windows.Storage.FileIO.ReadTextAsync(file);
             var data = JsonConvert.DeserializeObject<EnchantmentData>(json);
             data.enchantments.ForEach(enchantment => Enchantments.Add(enchantment));
             EnchantmentsListView.ItemsSource = Enchantments;

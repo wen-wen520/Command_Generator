@@ -8,7 +8,8 @@ namespace Command_Generator.Core.Unit
 {
     internal interface base_unit
     {
-        String toString();
+        String toString(string action = null);
         String toUnit();
+        void saveUnit();
     }
 }

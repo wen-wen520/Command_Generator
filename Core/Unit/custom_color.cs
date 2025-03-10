@@ -4,7 +4,7 @@
     {
 
         // Implementations
-        public string toString()
+        public string toString(string action = null)
         {
             return "color:";
         }
@@ -12,6 +12,9 @@
         {
             return "\"color\":\"{color}\"";
         }
-
+        public async void saveUnit()
+        {
+            
+        }
     }
 }

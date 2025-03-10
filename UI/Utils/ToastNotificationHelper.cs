@@ -9,7 +9,7 @@ namespace Command_Generator.Services
 {
     public sealed partial class ToastNotificationHelper
     {
-        public static void SendNotification(string title = "", string copy_text = "", string image_path = "")
+        public static void SendNotification(string title = "", string copy_text = "", string image_path = "ms-appx:///Assets/Information.png")
         {
             // Create the toast notification content
             string toastXmlString = $@"

@@ -9,204 +9,271 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
+    <Page.Resources />
 
-    <Page.Resources>
-        <CollectionViewSource x:Name="GroupedEffects" IsSourceGrouped="True" />
-        <DataTemplate x:Key="EffectTemplate">
-            <StackPanel Padding="10" Orientation="Horizontal">
-                <TextBlock
-                    Margin="0,0,20,0"
-                    FontWeight="Bold"
-                    Text="{Binding Name}" />
-                <TextBlock Margin="0,0,20,0" Text="{Binding Id}" />
-                <TextBlock Margin="0,0,20,0" Text="{Binding Lvl}" />
-                <TextBlock Margin="0,0,20,0" Text="{Binding Duration}" />
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions>
+    <ScrollViewer>
+        <Grid Margin="40,0,40,40" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Column="0">
-            <StackPanel Padding="20" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-
-                <StackPanel.ChildrenTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
-                        <RepositionThemeTransition IsStaggeringEnabled="False" />
-                    </TransitionCollection>
-                </StackPanel.ChildrenTransitions>
-
-                <TextBlock
-                    Margin="20"
-                    HorizontalAlignment="Stretch"
-                    FontWeight="Bold"
-                    Style="{StaticResource TitleTextBlockStyle}"
-                    Text="命令/effect" />
-
-                <muxc:RadioButtons
-                    x:Name="CommandType"
-                    Width="300"
-                    Margin="20"
-                    HorizontalAlignment="Stretch"
-                    Header="操作方式"
-                    MaxColumns="3">
-                    <RadioButton Content="给予效果" />
-                    <RadioButton Content="清除效果" />
-                </muxc:RadioButtons>
-
-                <AutoSuggestBox
-                    x:Name="Target"
-                    Margin="20"
-                    HorizontalAlignment="Stretch"
-                    Header="目标选择器 玩家名称"
-                    PlaceholderText="目标（玩家名或选择器）"
-                    SuggestionChosen="AutoSuggestBox_SuggestionChosen"
-                    TextChanged="AutoSuggestBox_TextChanged" />
-
-                <Button
-                    x:Name="GenerateCommandButton"
-                    Margin="20"
-                    HorizontalAlignment="Stretch"
-                    Click="GenerateCommand_Click"
-                    Content="生成命令"
-                    IsEnabled="False"
-                    Style="{StaticResource AccentButtonStyle}" />
-                <Button
-                    x:Name="GeneratePotionNBTButton"
-                    Margin="20"
-                    HorizontalAlignment="Stretch"
-                    Click="GeneratePotionNBT_Click"
-                    Content="生成药水NBT"
-                    IsEnabled="False"
-                    Style="{StaticResource AccentButtonStyle}" />
-            </StackPanel>
-        </ContentControl>
-
-        <ContentControl Grid.Column="1">
-            <ScrollViewer>
+            <Border
+                Grid.Column="0"
+                Height="auto"
+                Margin="0"
+                VerticalAlignment="Stretch"
+                Style="{StaticResource BaseBorderStyle}">
                 <StackPanel
-                    Padding="20"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Vertical">
-
-                    <StackPanel.ChildrenTransitions>
-                        <TransitionCollection>
-                            <EntranceThemeTransition FromVerticalOffset="300" IsStaggeringEnabled="True" />
-                            <RepositionThemeTransition IsStaggeringEnabled="False" />
-                        </TransitionCollection>
-                    </StackPanel.ChildrenTransitions>
-
-
-
-                    <StackPanel
-                        x:Name="EffectsListLoadingAnimation"
+                    Padding="10"
+                    Orientation="Vertical"
+                    Spacing="8">
+                    <TextBlock
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                        <TextBlock
-                            Margin="20"
-                            HorizontalAlignment="Center"
-                            Text="效果列表加载中，请稍后" />
-                        <muxc:ProgressRing
-                            Width="60"
-                            Height="60"
-                            Margin="20"
-                            HorizontalAlignment="Center"
-                            IsActive="True" />
-                    </StackPanel>
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        Text="Selected: " />
 
-                    <!--  标题行  -->
-                    <StackPanel
-                        x:Name="EffectsTitleBar"
-                        Margin="40,20,20,10"
-                        Orientation="Horizontal"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="130"
-                            Margin="5"
-                            FontWeight="Bold"
-                            Text="名称" />
-                        <TextBlock
-                            Width="120"
-                            Margin="5"
-                            FontWeight="Bold"
-                            Text="持续时间" />
-                        <TextBlock
-                            Width="110"
-                            Margin="5"
-                            FontWeight="Bold"
-                            Text="等级" />
-                        <TextBlock
-                            Width="120"
-                            Margin="5"
-                            FontWeight="Bold"
-                            Text="粒子效果" />
-                    </StackPanel>
+                    <CommandBar
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        DefaultLabelPosition="Right"
+                        IsOpen="False">
+                        <AppBarButton
+                            Click="SelectorAddClick"
+                            Icon="Add"
+                            Label="New" />
+                        <AppBarButton
+                            Click="SelectorEditClick"
+                            Icon="Edit"
+                            Label="Edit" />
+                        <AppBarButton
+                            Click="SelectorDeleteClick"
+                            Icon="Delete"
+                            Label="Delete" />
+                        <AppBarSeparator />
+                        <AppBarButton
+                            Click="SelectorImportClick"
+                            Icon="OpenFile"
+                            Label="Import" />
+                        <AppBarButton
+                            Click="SelectorExportClick"
+                            Icon="SaveLocal"
+                            Label="Export" />
+                    </CommandBar>
+
                     <ListView
-                        x:Name="EffectsListView"
-                        Margin="20"
-                        ItemsSource="{x:Bind Effects}"
-                        SelectionChanged="EffectsListView_SelectionChanged"
-                        SelectionMode="Multiple">
+                        x:Name="SelectorFileList"
+                        Width="auto"
+                        Height="auto"
+                        BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+                        BorderThickness="1" />
 
-                        <ListView.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.HeaderTemplate>
-                                    <DataTemplate>
-                                        <Border AutomationProperties.AccessibilityView="Raw">
-                                            <TextBlock
-                                                AutomationProperties.AccessibilityView="Raw"
-                                                Style="{ThemeResource TitleTextBlockStyle}"
-                                                Text="{Binding Key}" />
-                                        </Border>
-                                    </DataTemplate>
-                                </GroupStyle.HeaderTemplate>
-                            </GroupStyle>
-                        </ListView.GroupStyle>
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-
-
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock
-                                        Width="100"
-                                        Margin="5"
-                                        Text="{Binding Name}" />
-                                    <muxc:NumberBox
-                                        Width="120"
-                                        Margin="5"
-                                        LargeChange="10"
-                                        Maximum="256"
-                                        Minimum="1"
-                                        SmallChange="1"
-                                        SpinButtonPlacementMode="Compact"
-                                        Value="{Binding Duration, Mode=TwoWay}" />
-                                    <muxc:NumberBox
-                                        Width="120"
-                                        Margin="5"
-                                        LargeChange="10"
-                                        Minimum="1"
-                                        SmallChange="1"
-                                        SpinButtonPlacementMode="Compact"
-                                        Value="{Binding Lvl, Mode=TwoWay}" />
-
-                                    <ToggleSwitch
-                                        Width="40"
-                                        Margin="5,0,0,0"
-                                        IsOn="{Binding Particle, Mode=TwoWay}"
-                                        OffContent="无"
-                                        OnContent="有" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                 </StackPanel>
-            </ScrollViewer>
-        </ContentControl>
-    </Grid>
+            </Border>
+
+            <Border
+                Grid.Column="1"
+                Height="auto"
+                Margin="10,0,0,0"
+                VerticalAlignment="Stretch"
+                Style="{StaticResource BaseBorderStyle}">
+                <StackPanel
+                    x:Name="Editor"
+                    Padding="10"
+                    Orientation="Vertical"
+                    Spacing="8">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        Text="Editing: " />
+                    <CommandBar
+                        x:Name="EditorCommandBar"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Left"
+                        Background="Transparent"
+                        DefaultLabelPosition="Right">
+
+                        <AppBarButton
+                            Click="EditorButtonNewClick"
+                            Icon="Add"
+                            Label="New" />
+                        <AppBarSeparator />
+                        <AppBarButton
+                            Click="EditorButtonRenameClick"
+                            Icon="Rename"
+                            Label="Rename" />
+                        <AppBarSeparator />
+                        <AppBarButton
+                            Click="EditorButtonSaveClick"
+                            Icon="Save"
+                            Label="Save" />
+                        <AppBarButton
+                            Click="EditorButtonSaveasClick"
+                            Icon="SaveLocal"
+                            Label="Save as" />
+                        <AppBarSeparator />
+                        <AppBarButton
+                            Click="EditorButtonDeleteClick"
+                            Icon="Delete"
+                            Label="Delete" />
+                        <AppBarButton
+                            Click="EditorButtonCloseClick"
+                            Icon="Clear"
+                            Label="Close" />
+
+                    </CommandBar>
+                    <Grid x:Name="EditorContent" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="2*"
+                                MinWidth="80"
+                                MaxWidth="100" />
+                            <ColumnDefinition
+                                Width="2*"
+                                MinWidth="140"
+                                MaxWidth="160" />
+                            <ColumnDefinition Width="8*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource SubtitleTextBlockStyle}"
+                            Text="Name" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Id" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Level" />
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Duration" />
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Ambient" />
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Particles" />
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Text="Icon" />
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource SubtitleTextBlockStyle}"
+                            Text="Value" />
+                        <TextBox
+                            x:Name="EditorContentID"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <muxc:NumberBox
+                            x:Name="EditorContentLevel"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Maximum="256"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Compact"
+                            Value="1" />
+                        <muxc:NumberBox
+                            x:Name="EditorContentDuration"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Maximum="256"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Compact"
+                            Value="1" />
+                        <CheckBox
+                            x:Name="EditorContentAmbient"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <CheckBox
+                            x:Name="EditorContentShowParticles"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <CheckBox
+                            x:Name="EditorContentShowIcon"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource SubtitleTextBlockStyle}"
+                            Text="Description" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="The in game id of effect" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="How strong the effect is" />
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="How long the effect last" />
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Making sound when drinking" />
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Show particles when have this effect" />
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="Show icon when have this effect" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Page>
